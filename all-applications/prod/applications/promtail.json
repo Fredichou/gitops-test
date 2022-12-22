@@ -1,0 +1,7 @@
+{
+  "application": {
+    "name": "promtail",
+    "path": "promtail",
+    "namespace": "monitoring"
+  }
+}

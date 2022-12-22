@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: all-applications
+spec:
+  generators:
+  - git:
+      repoURL: 'https://github.com/Fredichou/gitops-test'
+      revision: HEAD
+      files:
+      - path: 'all-applications/prod/applications/*.json'
+  template:
+    metadata:
+      name: '{{application.name}}'
+    spec:
+      project: default
+      source:
+        repoURL: 'https://github.com/Fredichou/gitops-test'
+        targetRevision: HEAD
+        path: '{{application.path}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{application.namespace}}'
+      syncPolicy:
+        syncOptions:
+        - CreateNamespace=true

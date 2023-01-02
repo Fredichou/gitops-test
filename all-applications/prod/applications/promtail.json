@@ -2,6 +2,7 @@
   "application": {
     "name": "promtail",
     "path": "promtail",
-    "namespace": "monitoring"
+    "namespace": "monitoring",
+    "valuesFiles": "values.yaml,prod/values-prod.yaml"
   }
 }

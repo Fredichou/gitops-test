@@ -18,6 +18,9 @@ spec:
         repoURL: 'https://github.com/Fredichou/gitops-test'
         targetRevision: HEAD
         path: '{{application.path}}'
+        helm:
+          valueFiles: 
+            - '{{ application.valuesFiles }}'
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{application.namespace}}'

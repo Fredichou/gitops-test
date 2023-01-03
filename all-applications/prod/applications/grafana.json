@@ -1,0 +1,8 @@
+{
+  "application": {
+    "name": "grafana",
+    "path": "grafana",
+    "namespace": "monitoring",
+    "valuesFiles": "values.yaml,prod/values-prod.yaml"
+  }
+}
